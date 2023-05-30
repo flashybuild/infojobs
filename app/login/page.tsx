@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
-import { FaceIcon } from "../assets/face";
-import { PaperIcon } from "../assets/paper";
-import { UserIcon } from "../assets/user";
-import AuthButton from "./components/auth-button";
+import { FaceIcon } from '../assets/face'
+import { PaperIcon } from '../assets/paper'
+import { UserIcon } from '../assets/user'
+import AuthButton from './components/auth-button'
 
 export default async function Login({ searchParams: { code } }: any) {
   return (
@@ -71,11 +71,11 @@ export default async function Login({ searchParams: { code } }: any) {
       <footer className="flex w-full flex-col items-center mt-7">
         <hr className="w-full" />
         <span>
-          Hecho con 💙 por{" "}
+          Hecho con 💙 por{' '}
           <a href="https://www.linkedin.com/in/maximilianocolla/">Maxi</a>
         </span>
         <span>Gracias Midu e InfoJobs</span>
       </footer>
     </>
-  );
+  )
 }
