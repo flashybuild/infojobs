@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 const necesaryScope =
   'CV,CANDIDATE_READ_CURRICULUM_EDUCATION,CANDIDATE_READ_CURRICULUM_EXPERIENCE,CANDIDATE_READ_CURRICULUM_FUTURE_JOB,CANDIDATE_EDIT_CURRICULUM_CVTEXT,CANDIDATE_READ_CURRICULUM_CVTEXT'
 // const clientId = "0017c43570e04426b27e6bc8c75a846a";
-const clientId = '822b9be3d2da4333b50405e6f7a35031'
+const clientId = process.env.CLIENT_ID
 // const redirectUri = "https://infojobs-challenge.vercel.app/login";
 const redirectUri = 'https://infojobsito.vercel.app/login'
 
