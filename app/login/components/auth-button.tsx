@@ -1,22 +1,22 @@
-"use client";
+'use client'
 
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import toast from "react-hot-toast";
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
+import toast from 'react-hot-toast'
 
 const necesaryScope =
-  "CV,CANDIDATE_READ_CURRICULUM_EDUCATION,CANDIDATE_READ_CURRICULUM_EXPERIENCE,CANDIDATE_READ_CURRICULUM_FUTURE_JOB,CANDIDATE_EDIT_CURRICULUM_CVTEXT,CANDIDATE_READ_CURRICULUM_CVTEXT";
+  'CV,CANDIDATE_READ_CURRICULUM_EDUCATION,CANDIDATE_READ_CURRICULUM_EXPERIENCE,CANDIDATE_READ_CURRICULUM_FUTURE_JOB,CANDIDATE_EDIT_CURRICULUM_CVTEXT,CANDIDATE_READ_CURRICULUM_CVTEXT'
 // const clientId = "0017c43570e04426b27e6bc8c75a846a";
-const clientId = "822b9be3d2da4333b50405e6f7a35031";
+const clientId = '822b9be3d2da4333b50405e6f7a35031'
 // const redirectUri = "https://infojobs-challenge.vercel.app/login";
-const redirectUri = "https://infojobsito.vercel.app/login";
+const redirectUri = 'https://infojobsito.vercel.app/login'
 
 const AuthButton = ({ code }: any) => {
   const handleLogin = () => {
-    window.location.href = `https://www.infojobs.net/api/oauth/user-authorize/index.xhtml?scope=${necesaryScope}&client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`;
-  };
+    window.location.href = `https://www.infojobs.net/api/oauth/user-authorize/index.xhtml?scope=${necesaryScope}&client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`
+  }
 
-  const router = useRouter();
+  const router = useRouter()
 
   useEffect(() => {
     if (code) {
@@ -24,31 +24,27 @@ const AuthButton = ({ code }: any) => {
         .promise(
           fetch(`/api/authorize`, {
             headers: {
-              "Content-Type": "application/json",
-              "InfoJobs-Code": code,
-            },
+              'Content-Type': 'application/json',
+              'InfoJobs-Code': code
+            }
           }),
           {
-            loading: "Autenticando...",
-            success: "¡Bienvenido!",
-            error: "Error en autenticación",
+            loading: 'Autenticando...',
+            success: '¡Bienvenido!',
+            error: 'Error en autenticación'
           }
         )
-        .then((data) => data.json())
+        .then(data => data.json())
         .then(({ data: { access_token, expires_in } }) => {
           const expirationDate = new Date(
             Date.now() + expires_in * 1000
-          ).toUTCString();
-          document.cookie = `access_token=${access_token}; expires=${expirationDate}; path=/`;
-          window.history.pushState(
-            {},
-            document.title,
-            window.location.pathname
-          );
-          router.replace("/");
-        });
+          ).toUTCString()
+          document.cookie = `access_token=${access_token}; expires=${expirationDate}; path=/`
+          window.history.pushState({}, document.title, window.location.pathname)
+          router.replace('/')
+        })
     }
-  }, [code, router]);
+  }, [code, router])
 
   return (
     <button
@@ -57,7 +53,7 @@ const AuthButton = ({ code }: any) => {
     >
       Autenticarme con InfoJobs
     </button>
-  );
-};
+  )
+}
 
-export default AuthButton;
+export default AuthButton
