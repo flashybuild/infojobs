@@ -35,3 +35,7 @@ A continuación, se detallan los pasos generales para utilizar el proyecto:
 Si tienes alguna pregunta o comentario relacionado con este proyecto, puedes contactarme a través de [Email](maxincolla@gmail.com) o [Linkedin](https://www.linkedin.com/in/maximilianocolla).
 
 ¡Gracias por tu interés en este desafío de InfoJobs! Espero que encuentres este repositorio útil e interesante. 😊🚀
+
+## Tools
+### localtunnel
+`npx localtunnel --port 3000 --subdomain infojobs`
