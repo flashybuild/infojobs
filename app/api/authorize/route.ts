@@ -10,7 +10,7 @@ const BASE_URL_API = 'https://www.infojobs.net'
 
 export async function GET(request: Request) {
   const code = request.headers.get('InfoJobs-Code')
-  console.log('🥬 code', code)
+  console.log('🥬 code app/api/authorize', code)
   const headers = {
     method: 'POST',
     'Content-Type': 'application/json'

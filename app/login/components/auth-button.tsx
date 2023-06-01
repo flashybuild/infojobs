@@ -16,8 +16,8 @@ const clientId = '822b9be3d2da4333b50405e6f7a35031'
 const redirectUri = url
 
 const AuthButton = ({ code }: any) => {
-  console.log('🚀 code', code)
-  document.cookie = `code=${code}; path=/login`
+  console.log('🚀 code from AuthButton', code)
+  
   const handleLogin = () => {
     window.location.href = `https://www.infojobs.net/api/oauth/user-authorize/index.xhtml?scope=${necesaryScope}&client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`  
   }
@@ -26,6 +26,7 @@ const AuthButton = ({ code }: any) => {
 
   useEffect(() => {
     if (code) {
+      document.cookie = `code=${code}; path=/login`
       toast
         .promise(
           fetch(`/api/authorize`, {
