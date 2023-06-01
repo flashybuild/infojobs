@@ -21,6 +21,8 @@ export async function GET(request: Request) {
     };
     const fetcher = new Fetcher(BASE_URL_API, headers);
     const curriculums: Curriculum[] = await fetcher.get("/2/curriculum");
+    console.log('📃 curriculums', curriculums)
+    console.log('Debug: curriculumParam', curriculumParam)
     const curriculum = curriculums.find((cv) => cv.code === curriculumParam);
 
     if (!curriculum) {
