@@ -17,7 +17,7 @@ const redirectUri = url
 
 const AuthButton = ({ code }: any) => {
   console.log('🚀 code', code)
-  // document.cookie = `code=${code}; path=/login`
+  document.cookie = `code=${code}; path=/login`
   const handleLogin = () => {
     window.location.href = `https://www.infojobs.net/api/oauth/user-authorize/index.xhtml?scope=${necesaryScope}&client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`  
   }
